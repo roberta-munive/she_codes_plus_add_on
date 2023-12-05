@@ -1,9 +1,11 @@
 // challenge 2
 
-let honoluluDateLocator = document.querySelector("#current-date");
-let honoluluDate = moment().tz("Pacific/Honolulu");
-let formattedHonoluluDate = honoluluDate.format("dddd, MMMM D, YYYY h:mm A");
-honoluluDateLocator.innerHTML = `It is ${formattedHonoluluDate} in Honolulu, Hawaii`;
+let honoluluCurrentDateLocator = document.querySelector("#current-date");
+let honoluluCurrentDate = moment().tz("Pacific/Honolulu");
+let formattedHonoluluCurrentDate = honoluluCurrentDate.format(
+  "dddd, MMMM D, YYYY h:mm A"
+);
+honoluluCurrentDateLocator.innerHTML = `It is ${formattedHonoluluCurrentDate} in Honolulu, Hawaii`;
 
 // challenge 3
 

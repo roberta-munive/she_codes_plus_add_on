@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- insert moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <!-- insert moment.js timezone -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-1970-2030.min.js"></script>
+    <title>Timezone Dropdown</title>
+  </head>
+  <body>
+    <select name="city" id="cities">
+      <option value="">Select a city</option>
+      <option value="Europe/Paris">Paris 🇫🇷</option>
+      <option value="Australia/Sydney">Sydney 🇦🇺</option>
+      <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
+    </select>
+    <script>
+      function alertCurrentDateAndTime(event) {
+        let timezone = event.target.value;
+        if (timezone.length > 0) {
+          let currentDateInTimezone = moment().tz(timezone);
+          let formattedCurrentDateInTimezone = currentDateInTimezone.format(
+            "dddd, MMMM D, YYYY h:mm A"
+          );
+          alert(`It is ${formattedCurrentDateInTimezone} in ${timezone}`);
+        }
+      }
+
+      let citiesDropdownLocator = document.querySelector("#cities");
+      citiesDropdownLocator.addEventListener("change", alertCurrentDateAndTime);
+    </script>
+  </body>
+</html>
